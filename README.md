@@ -6,6 +6,39 @@ We would like a web application that allows users to list spaces they have avail
 
 ## User Stories
 
+As a user,
+So that I can see places to rent
+I’d like to be able to browse properties
+
+As a user,
+So I can use all the website’s functionalities
+I’d like to be able to sign up
+
+As a registered user,
+So I can rent my places,
+I’d like to add listings
+
+As a registered user,
+So I can change information about my places,
+I’d like to update my listings
+
+As a registered user,
+So I can enjoy a holiday,
+I’d like to book a place
+
+As a registered user,
+So I can select my guests,
+I’d like to be able to confirm or deny a booking
+
+As a registered user,
+So I don’t end up with double bookings,
+I’d like to show the listing’s availability
+
+As a registered user,
+So I don’t reduce my renting chances
+I’d like to show the listings available till confirmation
+
+
 ### Headline specifications
 
 - Any signed-up user can list a new space.
