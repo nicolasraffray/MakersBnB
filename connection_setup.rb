@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 require 'sequel'
 require 'pg'
-if ENV["ENVIRONMENT"] == "test"
-  DB = Sequel.connect('postgres://localhost/bnb_test')
-else 
-  DB = Sequel.connect('postgres://localhost/bnb')
-end 
+
+DB = if ENV['ENVIRONMENT'] == 'test'
+       Sequel.connect('postgres://localhost/bnb_test')
+     else
+       Sequel.connect('postgres://localhost/bnb')
+     end
