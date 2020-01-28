@@ -26,10 +26,20 @@ class Bnb < Sinatra::Base
     erb :'users/new'
 
   end 
+  
   delete '/session' do 
-  session.clear
-  redirect ('/')
+    session.clear
+    redirect ('/')
   end 
+  
+  get '/session/new' do
+    erb :'session/new'
+  end
+
+  post '/session' do
+    session[:user] = User.authenticate(username: params[:username], password: params[:password])
+    redirect ('/')
+  end
 
  run! if app_file == $0
 
