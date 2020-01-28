@@ -8,12 +8,17 @@
   <button type="submit" value="Show all">Show all</button>
   </form> 
    <% if !@user  %>
-   <form action="/users/new" method="get">
-  <input type="submit" value="sign up">
-   </form>
+     <form action="/users/new" method="get">
+      <input type="submit" value="sign up">
+     </form>
    <form action="/session/new" method="get">
-  <button type="submit" value="Log In">Log In</button>
-  </form> 
+    <button type="submit" value="Log In">Log In</button>
+   </form> 
+   <% else   %>
+    <form action="/session" method="post">
+      <input type="submit" value="logout">
+      <input type="hidden" value="DELETE" name='_method'>
+    </form>
     <% end  %>
 </html>
 
