@@ -3,7 +3,6 @@
 require_relative '../connection_setup'
 require 'bcrypt'
 
-
 class User < Sequel::Model
   def self.new_user(name:, email:, phone_number:, username:, password:)
     encrypted_password = BCrypt::Password.create(password)
@@ -14,7 +13,7 @@ class User < Sequel::Model
     result = User.where(username: username)
     return nil unless result.any?
     return nil unless BCrypt::Password.new(result.first.password) == password
-    
+
     result.first
   end
 end

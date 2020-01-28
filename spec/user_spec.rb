@@ -19,21 +19,21 @@ describe User do
   end
 
   describe '.authenticate' do
-    it "returns nil given an incorrect username" do
+    it 'returns nil given an incorrect username' do
       user = User.new_user(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123', phone_number: 123_456_789)
       authenticated_user = User.authenticate(username: 'uValenteWRONG', password: 'psw123')
 
       expect(authenticated_user).to be_nil
     end
 
-    it "returns nil given an incorrect password" do
+    it 'returns nil given an incorrect password' do
       user = User.new_user(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123', phone_number: 123_456_789)
       authenticated_user = User.authenticate(username: 'uValente', password: 'psw123WRONG')
 
       expect(authenticated_user).to be_nil
     end
 
-    it "returns a user when given correct username and password" do
+    it 'returns a user when given correct username and password' do
       user = User.new_user(name: 'Umberto', username: 'uValente', email: 'mock@gmail.com', password: 'psw123', phone_number: 123_456_789)
       authenticated_user = User.authenticate(username: 'uValente', password: 'psw123')
 

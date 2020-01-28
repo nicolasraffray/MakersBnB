@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sinatra/base'
 require './lib/place'
 require './lib/user'
@@ -5,38 +7,39 @@ require './lib/user'
 class Bnb < Sinatra::Base
   enable :sessions, :method_override
 
-  get '/' do 
+  get '/' do
     @user = session[:user]
+    @places = Place.all
     erb :index
-  end 
+  end
 
-  post '/users' do 
-   user = User.new_user(name: params[:name], email: params[:email], phone_number: params[:phonenumber], username: params[:username], password: params[:password])
-   session[:user] = user
-   redirect ('/')
-  end 
+  post '/users' do
+    user = User.new_user(name: params[:name], email: params[:email], phone_number: params[:phonenumber], username: params[:username], password: params[:password])
+    session[:user] = user
+    redirect '/'
+  end
 
- get '/places' do 
+  get '/places' do
     @places = Place.all
     erb :places
-  end 
+  end
 
-  get '/users/new' do 
+  get '/users/new' do
     erb :'users/new'
-  end 
-  
-  delete '/session' do 
+  end
+
+  delete '/session' do
     session.clear
-    redirect ('/')
-  end 
-  
+    redirect '/'
+  end
+
   get '/session/new' do
     erb :'session/new'
   end
 
   post '/session' do
     session[:user] = User.authenticate(username: params[:username], password: params[:password])
-    redirect ('/')
+    redirect '/'
   end
 
   get '/places/new' do
@@ -45,9 +48,8 @@ class Bnb < Sinatra::Base
 
   post '/places' do
     Place.create(userid: session[:user].id, listingtitle: params[:listingtitle], description: params[:description], address: params[:address], ppn: params[:ppn])
-    redirect('/places')
+    redirect('/')
   end
 
- run! if app_file == $0
-
-end 
+  run! if app_file == $PROGRAM_NAME
+end
