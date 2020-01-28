@@ -2,7 +2,7 @@ require 'sinatra/base'
 require './lib/place'
 require './lib/user'
 class Bnb < Sinatra::Base
-  enable :sessions
+  enable :sessions, :method_override
 
   get '/' do 
     @user = session[:user]
@@ -26,7 +26,10 @@ class Bnb < Sinatra::Base
     erb :'users/new'
 
   end 
-
+  delete '/session' do 
+  session.clear
+  redirect ('/')
+  end 
 
  run! if app_file == $0
 
