@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'place'
+require './lib/place'
 class Bnb < Sinatra::Base
 
   get '/' do 
@@ -7,9 +7,9 @@ class Bnb < Sinatra::Base
 
   end 
 
- get '/all' do 
-   @all = Place.all
-   erb :all
+ get '/places' do 
+   @places = Place.all
+   erb :places
 
 
   end 
