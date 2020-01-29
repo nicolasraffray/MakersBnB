@@ -51,8 +51,14 @@ class Bnb < Sinatra::Base
   end
 
   post '/session' do
-    session[:user] = User.authenticate(username: params[:username], password: params[:password])
-    redirect '/'
+    user = User.authenticate(username: params[:username], password: params[:password])
+    if user
+      session[:user] = user
+      redirect '/'
+    else
+      flash[:notice] = 'Please check your email or password'
+      redirect '/session/new'
+    end
   end
 
   get '/places/new' do
