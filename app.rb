@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/place'
 require './lib/user'
 
 class Bnb < Sinatra::Base
   enable :sessions, :method_override
+  register Sinatra::Flash
 
   get '/' do
     @user = session[:user]
@@ -14,9 +16,20 @@ class Bnb < Sinatra::Base
   end
 
   post '/users' do
-    user = User.new_user(name: params[:name], email: params[:email], phone_number: params[:phonenumber], username: params[:username], password: params[:password])
-    session[:user] = user
-    redirect '/'
+    if User.where(:username => params[:username]).any?
+      flash[:notice] = 'Username already in use'
+      redirect '/users/new'
+    elsif User.where(:email => params[:email]).any?
+      flash[:notice] = 'Email already in use'
+      redirect '/users/new'
+    elsif User.where(:phonenumber => params[:phonenumber]).any?
+      flash[:notice] = 'Phone number already in use'
+      redirect '/users/new'
+    else
+      user = User.new_user(name: params[:name], email: params[:email], phone_number: params[:phonenumber], username: params[:username], password: params[:password])
+      session[:user] = user
+      redirect '/'
+    end
   end
 
   get '/places' do
