@@ -3,6 +3,7 @@
 require 'sinatra/base'
 require './lib/place'
 require './lib/user'
+require './lib/availabilities'
 
 class Bnb < Sinatra::Base
   enable :sessions, :method_override
@@ -47,9 +48,16 @@ class Bnb < Sinatra::Base
   end
 
   post '/places' do
-    Place.create(userid: session[:user].id, listingtitle: params[:listingtitle], description: params[:description], address: params[:address], ppn: params[:ppn])
-    redirect('/')
+    place = Place.create(userid: session[:user].id, listingtitle: params[:listingtitle], description: params[:description], address: params[:address], ppn: params[:ppn])
+    Avail.create(placesid: place.id, dates: "#{params[:from]},#{params[:to]})")
+    redirect("/places/#{place.id}")
   end
+
+  get '/places/:id' do 
+    @place = Place.where(id: params[:id]).first
+    @avail = Avail.where(placesid: params[:id]).first
+    erb :'places/id'
+  end 
 
   run! if app_file == $PROGRAM_NAME
 end
