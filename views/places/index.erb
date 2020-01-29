@@ -1,0 +1,24 @@
+<% if @user %>
+  <h1><%= @user.name %>, welcome to Makers BnB!</h1>
+<% else %>
+  <h1>Welcome to BnB!</h1>
+<% end %>
+<% @places.each do |place| %>
+  <div class='listing'>
+    <div class='title-ppn'>
+      <%= place.listingtitle %>
+      <%= place.ppn %>
+    </div>
+    <div class='description'>
+      <%= place.description %>
+    </div>
+    <div class='address'>
+      <%= place.address %>
+    </div>
+  </div>
+<% end %>
+<% if @user %>
+  <form action='/places/new' method="GET">
+    <input type="submit" value="Add Listing">
+  </form>
+<% end %>
