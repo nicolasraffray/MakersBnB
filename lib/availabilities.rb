@@ -9,7 +9,6 @@ class Avail < Sequel::Model
     from = Avail.where(placesid: place_id).map(:start)[0].strftime("%Y-%m-%d")
     to = Avail.where(placesid: place_id).map(:end)[0].strftime("%Y-%m-%d")
 
-    from + " " + to 
-    
+    from + " " + to     
   end
 end 
