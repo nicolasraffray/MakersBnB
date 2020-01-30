@@ -7,7 +7,9 @@ feature 'log_in' do
     click_button('Sign In')
     fill_in 'username', with: 'uValente'
     fill_in 'password', with: 'psw123'
-    click_button('Sign In')
+    within(:css, 'form.session-new') do
+      click_button('Sign In')
+    end
     expect(page).to have_content('Umberto, welcome to Makers BnB!')
     expect(page).not_to have_content('Sign In')
   end
@@ -18,7 +20,9 @@ feature 'log_in' do
     click_button('Sign In')
     fill_in 'username', with: 'uValentewrong'
     fill_in 'password', with: 'psw123'
-    click_button('Sign In')
+    within(:css, 'form.session-new') do
+      click_button('Sign In')
+    end
     expect(page).to have_content('Please check your email or password')
   end
 
@@ -28,7 +32,9 @@ feature 'log_in' do
     click_button('Sign In')
     fill_in 'username', with: 'uValente'
     fill_in 'password', with: 'psw123wrong'
-    click_button('Sign In')
+    within(:css, 'form.session-new') do
+      click_button('Sign In')
+    end
     expect(page).to have_content('Please check your email or password')
   end
 end

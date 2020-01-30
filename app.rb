@@ -5,9 +5,8 @@ require 'sinatra/flash'
 require './lib/place'
 require './lib/user'
 require './lib/availabilities'
-require 'icalendar'
 
-class Bnb < Sinatra::Base 
+class Bnb < Sinatra::Base
   enable :sessions, :method_override
   register Sinatra::Flash
 
@@ -20,13 +19,13 @@ class Bnb < Sinatra::Base
   end
 
   post '/users' do
-    if User.where(:username => params[:username]).any?
+    if User.where(username: params[:username]).any?
       flash[:notice] = 'Username already in use'
       redirect '/users/new'
-    elsif User.where(:email => params[:email]).any?
+    elsif User.where(email: params[:email]).any?
       flash[:notice] = 'Email already in use'
       redirect '/users/new'
-    elsif User.where(:phonenumber => params[:phonenumber]).any?
+    elsif User.where(phonenumber: params[:phonenumber]).any?
       flash[:notice] = 'Phone number already in use'
       redirect '/users/new'
     else
@@ -75,11 +74,11 @@ class Bnb < Sinatra::Base
     redirect("/places/#{place.id}")
   end
 
-  get '/places/:id' do 
+  get '/places/:id' do
     @place = Place.where(id: params[:id]).first
     @avail = Avail.where(placesid: params[:id]).first
     erb :'places/id'
-  end 
+  end
 
   run! if app_file == $PROGRAM_NAME
 end

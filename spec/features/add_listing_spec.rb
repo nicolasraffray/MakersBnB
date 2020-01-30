@@ -7,7 +7,9 @@ feature 'add listing' do
     click_button('Sign In')
     fill_in 'username', with: 'uValente'
     fill_in 'password', with: 'psw123'
-    click_button('Sign In')
+    within(:css, 'form.session-new') do
+      click_button('Sign In')
+    end
     click_button('Add Listing')
     fill_in 'listingtitle', with: 'Very cool penthouse in Milan'
     fill_in 'description', with: 'Incredible apartment on the top floor of the highest skyscraper in Milan'
