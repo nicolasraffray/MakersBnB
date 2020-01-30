@@ -7,10 +7,12 @@ require './lib/user'
 class Bnb < Sinatra::Base
   enable :sessions, :method_override
 
-  get '/' do
+  before do
     @user = session[:user]
-    @places = Place.all
-    erb :index
+  end
+
+  get '/' do
+    redirect 'places'
   end
 
   post '/users' do
@@ -21,7 +23,7 @@ class Bnb < Sinatra::Base
 
   get '/places' do
     @places = Place.all
-    erb :places
+    erb :'places/index'
   end
 
   get '/users/new' do
