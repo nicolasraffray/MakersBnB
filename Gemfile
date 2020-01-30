@@ -4,11 +4,11 @@ source 'https://rubygems.org'
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 gem 'bcrypt'
+gem 'capybara'
 gem 'pg'
 gem 'rspec'
-gem 'sinatra'
-gem 'capybara'
 gem 'sequel'
 gem 'simplecov', require: false
 gem 'simplecov-console', require: false
-gem 'icalendar'
+gem 'sinatra'
+gem 'sinatra-flash'

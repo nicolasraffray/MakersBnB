@@ -4,5 +4,7 @@ def sign_in
   click_button('Sign In')
   fill_in 'username', with: 'nic123'
   fill_in 'password', with: 'psw123090'
-  click_button('Sign In')
+  within(:css, 'form.session-new') do
+    click_button('Sign In')
+  end
 end 
