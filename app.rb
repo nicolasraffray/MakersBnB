@@ -4,9 +4,11 @@ require 'sinatra/base'
 require './lib/place'
 require './lib/user'
 require './lib/availabilities'
+require 'icalendar'
 
-class Bnb < Sinatra::Base
+class Bnb < Sinatra::Base 
   enable :sessions, :method_override
+
 
   get '/' do
     @user = session[:user]
@@ -49,7 +51,7 @@ class Bnb < Sinatra::Base
 
   post '/places' do
     place = Place.create(userid: session[:user].id, listingtitle: params[:listingtitle], description: params[:description], address: params[:address], ppn: params[:ppn])
-    Avail.create(placesid: place.id, dates: "#{params[:from]},#{params[:to]})")
+    Avail.create(placesid: place.id, dates: "[#{params[:from]},#{params[:to]})")
     redirect("/places/#{place.id}")
   end
 

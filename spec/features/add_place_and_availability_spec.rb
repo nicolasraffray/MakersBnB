@@ -8,8 +8,8 @@ feature 'adding a place with availability' do
     fill_in 'description', with: 'Incredible apartment on the top floor of the highest skyscraper in Milan'
     fill_in 'address', with: '76 Italy Road, Milan, 48012, IT'
     fill_in 'ppn', with: '342'
-    fill_in 'from', with: '2020-02-01'
-    fill_in 'to', with: '2020-02-14'
+    fill_in 'From', with: '2020-02-01'
+    fill_in 'To', with: '2020-02-14'
     click_button('Publish')
     expect(page).to have_content('2020-02-01')
     expect(page).to have_content('2020-02-14')

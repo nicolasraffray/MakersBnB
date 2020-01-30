@@ -11,4 +11,4 @@ gem 'capybara'
 gem 'sequel'
 gem 'simplecov', require: false
 gem 'simplecov-console', require: false
-
+gem 'icalendar'

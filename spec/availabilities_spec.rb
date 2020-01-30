@@ -12,7 +12,6 @@ describe Avail do
 
   describe '.show_all' do 
     it 'shows the available dates for a given house' do 
-      p Place.first.id
       expect(Avail.show_all(Place.first.id)).to eq '2020-01-01,2020-01-07'
     end 
   end 
