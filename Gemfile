@@ -7,6 +7,7 @@ gem 'bcrypt'
 gem 'pg'
 gem 'rspec'
 gem 'sinatra'
+gem 'sinatra-flash'
 gem 'capybara'
 gem 'sequel'
 gem 'simplecov', require: false
