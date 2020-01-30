@@ -154,8 +154,28 @@ div.place-middle {
   justify-content: space-between;
 }
 
+div.place-bottom {
+  margin-bottom: 10px;
+}
+
 div.place-img img {
   max-width: 900px;
+}
+
+div.new-booking {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+div.new-booking input[type='submit'] {
+  background-color: transparent;
+  font-size: 20px;
+  border: none;
+}
+
+div.new-booking input[type='submit']:hover {
+  border-bottom: 1px black solid;
 }
 
 b {

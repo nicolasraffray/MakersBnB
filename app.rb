@@ -80,5 +80,15 @@ class Bnb < Sinatra::Base
     erb :'places/id'
   end
 
+  get '/places/:id/bookings/new' do
+    @place = Place.where(id: params[:id]).first
+    erb :'bookings/new'
+  end
+
+  post '/places/:id/bookings' do
+    'booking logic in here!!'
+    # visit 'something' book manager page?
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
