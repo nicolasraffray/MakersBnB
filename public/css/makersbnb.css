@@ -2,9 +2,11 @@ a {
   color: black;
   text-decoration: none;
 }
-
+body {
+  background-color: rgba(127, 255, 212, 0.1);
+}
 h1 {
-  font-size: 3rem;
+  font-size: 5rem;
   padding: 10px;
   text-align: center;
 }
@@ -16,7 +18,6 @@ body {
 }
 
 .cover-img {
-  position: absolute;
   top: -70px;
   background-color: aqua;
   background-image: url(/images/beach.jpg);
@@ -82,27 +83,85 @@ div.listings-container {
 }
 
 div.listing {
-  border: 1px black solid;
-  border-radius: 5px;
   margin: 10px 10px;
   min-width: 300px;
   min-height: 150px;
   position: relative;
+  margin-bottom: 30px;
 }
 
 div.title-ppn {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 10px;
 }
 
 div.description {
   padding: 10px;
+  max-width: 300px;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
+/* div.description {
+  padding: 10px;
+  overflow: hidden;
+  width:300px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+} */
+
 div.address {
-  position: absolute;
   bottom: 0;
   padding: 10px;
+}
+
+.listing-img img {
+  width: 300px;
+  border-radius: 7px;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+div.place-wrapper {
+  position: relative;
+  top: 150px;
+  max-width: 900px;
+  margin: auto;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+
+div.place-top {
+  padding: 10px 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+div.place-middle {
+  padding: 30px 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+div.place-img img {
+  max-width: 900px;
+}
+
+b {
+  font-weight: bolder;
+}
+
+i {
+  font-style: italic;
 }
