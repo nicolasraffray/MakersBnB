@@ -70,7 +70,7 @@ class Bnb < Sinatra::Base
 
   post '/places' do
     place = Place.create(userid: session[:user].id, listingtitle: params[:listingtitle], description: params[:description], address: params[:address], ppn: params[:ppn])
-    Avail.create(placesid: place.id, dates: "[#{params[:from]},#{params[:to]})")
+    Avail.new_avail(place_id: place.id, dates: params[:dates])
     redirect("/places/#{place.id}")
   end
 
