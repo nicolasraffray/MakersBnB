@@ -1,0 +1,30 @@
+<div class='cover-img'>
+  <div class='welcome'>
+    <% if @user %>
+     <h1><%= @user.name %>, welcome to Makers BnB!</h1>
+    <% else %>
+     <h1>Welcome to BnB!</h1>
+    <% end %>
+  </div>
+</div>
+<div class='listings-container'>
+    <% @places.each do |place| %>
+      <div class='listing'>
+        <div class='title-ppn'>
+          <span><%= place.listingtitle %></span>
+          <span><%= place.ppn %></span>
+        </div>
+        <div class='description'>
+          <%= place.description %>
+        </div>
+        <div class='address'>
+          <%= place.address %>
+        </div>
+      </div>
+    <% end %>
+</div>
+<% if @user %>
+  <form action='/places/new' method="GET">
+    <input type="submit" value="Add Listing">
+  </form>
+<% end %>
