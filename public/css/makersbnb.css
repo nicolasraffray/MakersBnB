@@ -1,0 +1,108 @@
+a {
+  color: black;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 3rem;
+  padding: 10px;
+  text-align: center;
+}
+
+body {
+  color: black;
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.cover-img {
+  position: absolute;
+  top: -70px;
+  background-color: aqua;
+  background-image: url(/images/beach.jpg);
+  height: 100vh;
+  position: relative;
+}
+
+.welcome {
+  position: absolute;
+  color: white;
+  top: 50vh;
+  width: 100%;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.5);
+  align-items: center;
+  z-index: 99;
+}
+
+nav div.home {
+  padding-left: 50px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+nav div.user-control {
+  display:  flex;
+  padding-right: 50px;
+}
+
+div.user-control input[type='submit'] {
+  background-color: transparent;
+  font-size: 20px;
+  margin-left: 10px;
+  border: none;
+}
+
+div.user-control input[type='submit']:hover {
+  border-bottom: 1px black solid;
+}
+
+main {
+  position: relative;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+div.listings-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+}
+
+div.listing {
+  border: 1px black solid;
+  border-radius: 5px;
+  margin: 10px 10px;
+  min-width: 300px;
+  min-height: 150px;
+  position: relative;
+}
+
+div.title-ppn {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding: 10px;
+}
+
+div.description {
+  padding: 10px;
+}
+
+div.address {
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+}
