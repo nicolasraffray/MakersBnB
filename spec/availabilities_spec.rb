@@ -12,10 +12,10 @@ describe Avail do
       expect(new_avail.end).to eq Date.parse('2020-02-18')
     end
   end
-
-  # describe '.show_all' do
-  #   it 'shows the available dates for a given house' do
-  #     expect(Avail.show_all(Place.first.id)).to eq '2020-01-01,2020-01-07'
-  #   end
-  # end
+  
+  describe '.show_all' do 
+    it 'shows the available dates for a given house' do 
+      expect(Avail.show_all(Place.first.id)).to eq '2020-01-01 2020-01-07'
+    end 
+  end 
 end

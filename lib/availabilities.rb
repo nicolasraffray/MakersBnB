@@ -10,7 +10,10 @@ class Avail < Sequel::Model
   end
 
   def self.show_all(place_id)
-    date_string = Avail.where(placesid: place_id).map(:dates)[0]
-    date_string[1..-2]
+    from = Avail.where(placesid: place_id).map(:start)[0].strftime("%Y-%m-%d")
+    to = Avail.where(placesid: place_id).map(:end)[0].strftime("%Y-%m-%d")
+
+    from + " " + to 
+    
   end
 end
