@@ -165,3 +165,60 @@ b {
 i {
   font-style: italic;
 }
+
+div.registration-wrapper {
+  box-sizing: border-box;
+  position: relative;
+  top: 30vh;
+  background-color: white;
+  max-width: 600px;
+  margin: auto;
+  padding: 40px 30px;
+  display: flex;
+  justify-content: center;
+}
+
+div.registration-wrapper form {
+  text-align: center;
+} 
+
+div.form-wrapper {
+  display: flex;
+}
+
+div.registration-left {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+div.registration-left label {
+  padding-top: 4px;
+}
+
+div.registration-right {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+div.registration-right input {
+  margin: 1px;
+}
+
+div.registration-right input {
+  width: 200px;
+}
+
+div.registration-wrapper input[type='submit'] {
+  background-color: transparent;
+  font-size: 20px;
+  border: none;
+  max-width: 90px;
+  margin-top: 30px;
+}
+
+div.registration-wrapper input[type='submit']:hover {
+  border-bottom: 1px black solid;
+}

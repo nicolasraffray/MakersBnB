@@ -1,6 +1,18 @@
-<%= flash[:notice] %>
-<form action="/session" method="POST" class='session-new'>
- <label>Username: <input type="text" name="username" required></label>
- <label>Password: <input type="password" name="password" required> </label>
-  <input type="submit" value="Sign In">
-</form>
+<div class='cover-img'>
+  <div class='registration-wrapper'>
+    <%= flash[:notice] %>
+    <form action="/session" method="POST" class='session-new'>
+      <div class='form-wrapper'>
+        <div class='registration-left'>
+          <label>Username: </label>
+          <label>Password: </label>
+        </div>
+        <div class='registration-right'>
+          <input type="text" name="username" required>
+          <input type="password" name="password" required>
+        </div>
+      </div>
+        <input type="submit" value="Sign In">
+    </form>
+  </div>
+</div>
