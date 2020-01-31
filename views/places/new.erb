@@ -1,14 +1,23 @@
-<form action="/places" method="POST">
-  <label>Listing Title: <input type="text" name="listingtitle" required></label>
-  <br>
-  <label>Description: <input type="text" name="description" required> </label>
-  <br>
-  <label>Address: <input type="text" name="address" required></label>
-  <br>
-  <label>Price per Night: <input type="text" name="ppn" required> </label>
-  <br>
-  <label>Availability: <input type='text' name='dates' required></label>
-  <br>
-  <input type="submit" value="Publish">
-  <br>
-</form>
+<div class='cover-img'>
+  <div class='registration-wrapper'>
+    <form action="/places" method="POST">
+      <div class='form-wrapper'>
+        <div class='registration-left'>
+          <label>Listing Title: </label>
+          <label>Description: </label>
+          <label>Address: </label>
+          <label>Price per Night: </label>
+          <label>Availability: </label>
+        </div>
+        <div class='registration-right'>
+          <input type="text" name="listingtitle" required>
+          <input type="text" name="description" required>
+          <input type="text" name="address" required>
+          <input type="text" name="ppn" required>
+          <input type='text' name='dates' required>
+        </div>
+        </div>
+      <input type="submit" value="Publish">
+    </form>
+  </div>
+</div>
