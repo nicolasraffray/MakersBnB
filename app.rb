@@ -99,9 +99,23 @@ class Bnb < Sinatra::Base
   get "/users/:id/mybookings" do 
     @bookings = Booking.where(userid: session[:user].id).map([:placesid, :bookingfrom, :bookingto, :confirm])
     @place = Place
-    p @place
     erb :'bookings/mybookings'
   end 
+
+  get "/users/:id/mylistings" do 
+    @places = Place.where(userid: session[:user].id).map(:id)
+    @booking = Booking 
+    
+    erb :'bookings/mylistings'
+  end 
+
+  post "/users/:id/mylistings" do 
+    p params
+    place = Booking.where(id: params[:bookingid])
+    place.update({confirm: true})
+    redirect("/users/:id/mylistings")
+  end 
+  
 
   run! if app_file == $PROGRAM_NAME
 end
