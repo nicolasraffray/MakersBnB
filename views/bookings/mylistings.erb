@@ -1,0 +1,16 @@
+<h1> My Listings </h1>
+
+<% for i in 0..@places.length do  %>
+<%  Booking.where(placesid: @places[i]).map([:userid,:bookingfrom,:bookingto,:placesid,:id,:confirm]).each do |booking| %>
+  <div>
+Place Title: <%= Place.where(id: booking[3]).map(:listingtitle).first %>
+Person Requesting: <%=  User.where(id: booking[0]).map(:name).first%>
+Requested Dates: <%= booking[1].strftime("%Y-%m-%d") + " - " + booking[2].strftime("%Y-%m-%d")%>
+Confirmation Status: <%= booking.last %>
+<form action="/users/:id/mylistings" method="post">
+<input type="submit"  value="Confirm">
+<input type="hidden" name="bookingid" value="<%= booking[4] %>">
+</form>
+  </div>
+  <%end%>
+<%end%>
