@@ -1,3 +1,4 @@
+<%= flash[:notice] %>
 <form action="/places/<%=@place.id%>/bookings" method="POST">
   <label>Booking dates: <input type='text' name='dates' autocomplete='off' required></label>
   <input type='submit' value='Book Me'>

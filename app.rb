@@ -1,10 +1,11 @@
 # frozen_string_literal: true
-
+require 'sequel'
 require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/place'
 require './lib/user'
 require './lib/availabilities'
+require './lib/bookings'
 
 class Bnb < Sinatra::Base
   enable :sessions, :method_override
@@ -86,9 +87,21 @@ class Bnb < Sinatra::Base
   end
 
   post '/places/:id/bookings' do
-    'booking logic in here!!'
-    # visit 'something' book manager page?
+    booking = Booking.new_booking(place_id: params[:id], user_id: session[:user].id, dates: params[:dates])
+    if booking == "There is no Availability"
+      flash[:notice] = 'Please Book Within The Available Dates'
+      redirect '/places/:id/bookings/new'
+    else
+      redirect "/users/#{session[:user].id}/mybookings"
+    end 
   end
+
+  get "/users/:id/mybookings" do 
+    @bookings = Booking.where(userid: session[:user].id).map([:placesid, :bookingfrom, :bookingto, :confirm])
+    @place = Place
+    p @place
+    erb :'bookings/mybookings'
+  end 
 
   run! if app_file == $PROGRAM_NAME
 end

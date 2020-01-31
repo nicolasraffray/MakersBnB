@@ -2,11 +2,12 @@ require_relative '../connection_setup'
 
 class Booking < Sequel::Model
 
-  def self.new_booking(place_id:, user_id:, bookingfrom:, bookingto:)
+
+  def self.new_booking(place_id:, user_id:, dates:)
     # We dont want to create booking outside of availability
-    
-    bookingfrom = Date.parse(bookingfrom)
-    bookingto = Date.parse(bookingto)
+    dates = dates.split(' - ')
+    bookingfrom = Date.parse(dates[0])
+    bookingto = Date.parse(dates[1])
 
     avail_from = Avail.where(placesid: place_id).map(:start)[0]
     avail_to = Avail.where(placesid: place_id).map(:end)[0]
@@ -36,7 +37,4 @@ class Booking < Sequel::Model
       "There is no Availability"
     end
   end
-
-  
-  
 end 
