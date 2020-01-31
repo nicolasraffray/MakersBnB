@@ -110,7 +110,6 @@ class Bnb < Sinatra::Base
   end 
 
   post "/users/:id/mylistings" do 
-    p params
     place = Booking.where(id: params[:bookingid])
     place.update({confirm: true})
     redirect("/users/:id/mylistings")
