@@ -1,0 +1,7 @@
+<h1> My Bookings </h1>
+
+<% @bookings.each do |booking|%>
+  <%= booking.last ? "Confirmed" : "Unconfirmed"  %>
+  <%= booking[1].strftime("%Y-%m-%d") + " - " + booking[2].strftime("%Y-%m-%d")%>
+  <%= @place.where(id: booking[0]).first.listingtitle %>
+  <% end %>

@@ -17,6 +17,12 @@
       </div>
       <div class='user-control'>
         <% if @user %>
+        <form action="/users/<%= @user.id%>/mybookings" method="GET">
+            <input type="submit" value="My Bookings">
+          </form>
+        <form action="/users/<%= @user.id%>/mylistings" method="GET">
+            <input type="submit" value="My Listings">
+          </form>
           <form action="/session" method="POST">
             <input type="hidden" value="DELETE" name='_method'>
             <input type="submit" value="Sign Out">
@@ -37,6 +43,6 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <script type='text/javascript' src='../js/datepicker.js'></script>
+    <script type='text/javascript' src='http://localhost:4567/js/datepicker.js'></script>
   </body>
 </html>

@@ -1,8 +1,23 @@
-<h1><%= @place.listingtitle %></h1> 
-
-<%= @place.address %>
-<%= @place.description %>
-<%= @place.ppn %>
-
-<%= @avail.start %>
-<%= @avail.end %>
+<div class='cover-img'>
+  <div class='place-wrapper'>
+    <div class='place-top'>
+      <h2><%= @place.listingtitle %></h2> 
+      <%= @place.ppn %> £
+    </div>
+    <div class='place-img'>
+      <img src='/images/sample-house.jpg'>
+    </div>
+    <div class='place-middle'>
+      <span><%= @place.address %></span>
+      <span><i>Available from:</i> <b><%= @avail.start %></b> <i>to:</i> <b><%= @avail.end %></b></span>
+    </div>
+    <div class='place-bottom'>
+      <%= @place.description %>
+    </div>
+    <div class='new-booking'>
+      <form action='/places/<%=@place.id%>/bookings/new' method='GET'>
+        <input type='submit' value='Book Me'>
+      </form>
+    </div>
+  </div>
+</div>

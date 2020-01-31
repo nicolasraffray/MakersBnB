@@ -10,15 +10,18 @@
 <div class='listings-container'>
     <% @places.each do |place| %>
       <div class='listing'>
+        <div class='listing-img'>
+          <a href="/places/<%=place.id%>"><img src='/images/sample-house.jpg'></a>
+        </div>
         <div class='title-ppn'>
-          <span><%= place.listingtitle %></span>
-          <span><%= place.ppn %></span>
+          <a href="/places/<%=place.id%>"><span><%= place.listingtitle %></span></a>
+          <a href="/places/<%=place.id%>"><span><%= place.ppn %> £</span></a>
         </div>
         <div class='description'>
-          <%= place.description %>
+          <a href="/places/<%=place.id%>"><%= place.description %></a>
         </div>
         <div class='address'>
-          <%= place.address %>
+          <a href="/places/<%=place.id%>"><%= place.address %></a>
         </div>
       </div>
     <% end %>
