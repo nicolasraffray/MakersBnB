@@ -7,6 +7,13 @@
     <% end %>
   </div>
 </div>
+<% if @user %>
+  <div class='add-listing'>
+    <form action='/places/new' method="GET">
+      <input type="submit" value="Add Listing">
+    </form>
+  </div>
+<% end %>
 <div class='listings-container'>
     <% @places.each do |place| %>
       <div class='listing'>
@@ -26,8 +33,3 @@
       </div>
     <% end %>
 </div>
-<% if @user %>
-  <form action='/places/new' method="GET">
-    <input type="submit" value="Add Listing">
-  </form>
-<% end %>

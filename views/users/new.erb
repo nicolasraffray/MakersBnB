@@ -1,9 +1,24 @@
-<%= flash[:notice] %>
-<form action="/users" method="POST">
-  <label>Name: <input type="text" name="name" required></label>
-  <label>Username: <input type="text" name="username" required></label>
-  <label>Email: <input type="email" name="email" required> </label>
-  <label>Phone Number: <input type="tel" name="phonenumber" required> </label>
-  <label>Password: <input type="password" name="password" required> </label>
-  <input type="submit" value="Register">
-</form>
+<div class='cover-img'>
+  <div class='registration-wrapper'>
+    <%= flash[:notice] %>
+    <form action="/users" method="POST">
+    <div class='form-wrapper'>
+      <div class='registration-left'>
+        <label>Name: </label>
+        <label>Username: </label>
+        <label>Email: </label>
+        <label>Phone Number: </label>
+        <label>Password: </label>
+      </div>
+      <div class='registration-right'>
+        <input type="text" name="name" required>
+        <input type="text" name="username" required>
+        <input type="email" name="email" required>
+        <input type="tel" name="phonenumber" required>
+        <input type="password" name="password" required>
+      </div>
+    </div>
+      <input type="submit" value="Register">
+    </form>
+  </div>
+</div>
