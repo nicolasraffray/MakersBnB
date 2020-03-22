@@ -8,6 +8,7 @@ gem 'capybara'
 gem 'pg'
 gem 'rspec'
 gem 'sequel'
+ 
 gem 'simplecov', require: false
 gem 'simplecov-console', require: false
 gem 'sinatra'
