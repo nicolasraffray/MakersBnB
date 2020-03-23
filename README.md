@@ -1,5 +1,13 @@
 # Makers Bnb
 
+## How to Run 
+
+  - Fork or Clone this repo 
+  - cd into the toplevel directory of this project
+  - run "bundle install" in the commandline
+  - run rackup -p 9292
+  - In your browser visit localhost:9292 
+
 # MakersBnB specification
 
 We would like a web application that allows users to list spaces they have available, and to hire spaces for the night.
@@ -67,9 +75,6 @@ I’d like to show the listings available till confirmation
 - A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
 - Basic payment implementation though Stripe.
 
-### Mockups
-
-Mockups for MakersBnB are available [here](https://github.com/makersacademy/course/blob/master/makersbnb/makers_bnb_images/MakersBnB_mockups.pdf).
 
 
 ![Tracking pixel](https://githubanalytics.herokuapp.com/course/makersbnb/specification_and_mockups.md)
