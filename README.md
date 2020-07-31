@@ -1,12 +1,12 @@
 # Makers Bnb
 
-## How to Run 
+## How to Run
 
-  - Fork or Clone this repo 
-  - cd into the toplevel directory of this project
-  - run "bundle install" in the commandline
-  - run rackup -p 9292
-  - In your browser visit localhost:9292 
+- Fork or Clone this repo
+- cd into the toplevel directory of this project
+- run "bundle install" in the commandline
+- run rackup -p 9292
+- In your browser visit localhost:9292
 
 # MakersBnB specification
 
@@ -46,7 +46,6 @@ As a registered user,
 So I don’t reduce my renting chances
 I’d like to show the listings available till confirmation
 
-
 ### Headline specifications
 
 - Any signed-up user can list a new space.
@@ -60,21 +59,23 @@ I’d like to show the listings available till confirmation
 ### Nice-to-haves
 
 - Users should receive an email whenever one of the following happens:
- - They sign up
- - They create a space
- - They update a space
- - A user requests to book their space
- - They confirm a request
- - They request to book a space
- - Their request to book a space is confirmed
- - Their request to book a space is denied
+- They sign up
+- They create a space
+- They update a space
+- A user requests to book their space
+- They confirm a request
+- They request to book a space
+- Their request to book a space is confirmed
+- Their request to book a space is denied
 - Users should receive a text message to a provided number whenever one of the following happens:
- - A user requests to book their space
- - Their request to book a space is confirmed
- - Their request to book a space is denied
+- A user requests to book their space
+- Their request to book a space is confirmed
+- Their request to book a space is denied
 - A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
 - Basic payment implementation though Stripe.
 
-
-
 ![Tracking pixel](https://githubanalytics.herokuapp.com/course/makersbnb/specification_and_mockups.md)
+
+|                        Home Screen                         |                    Bottom of Home Screen                     |                Sign In / Sign Up layout                |                        Listing Display                         |
+| :--------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------: | :------------------------------------------------------------: |
+| ![alt text](./public/images/readme_images/home_screen.png) | ![alt text](./public/images/readme_images/home_listings.png) | ![alt text](./public/images/readme_images/sign_in.png) | ![alt text](./public/images/readme_images/listing_display.png) |
